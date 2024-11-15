@@ -1,0 +1,23 @@
+#!/bin/sh
+
+echo "🔍 Running pre-commit checks..."
+
+echo "\n📝 Checking types..."
+pnpm typecheck || {
+  echo "❌ Type check failed"
+  exit 1
+}
+
+echo "\n🎨 Running Biome checks..."
+pnpm check || {
+  echo "❌ Biome check failed"
+  exit 1
+}
+
+echo "\n🧪 Running tests..."
+pnpm test || {
+  echo "❌ Tests failed"
+  exit 1
+}
+
+echo "\n✅ All checks passed!"

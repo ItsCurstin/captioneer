@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Validate commit message
+pnpm dlx commitlint --edit $1 || {
+  echo "❌ Commit message check failed"
+  echo "💡 Use format: type(scope): description"
+  echo "Examples:"
+  echo "  feat: add new feature"
+  echo "  fix: resolve bug"
+  echo "  docs: update README"
+  echo "\n📚 Full documentation:"
+  echo "https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional"
+  exit 1
+}
