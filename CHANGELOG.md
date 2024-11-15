@@ -5,6 +5,13 @@
 
 * initial project setup ([12e7c1e](https://github.com/ItsCurstin/captioneer/commit/12e7c1ef40449255bd48168dabd131c26a5c5930))
 
+# 1.0.0 (2024-11-15)
+
+
+### Features
+
+* initial project setup ([12e7c1e](https://github.com/ItsCurstin/captioneer/commit/12e7c1ef40449255bd48168dabd131c26a5c5930))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
