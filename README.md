@@ -135,13 +135,22 @@ pnpm lint
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! We follow a structured branching strategy and conventional commits.
 
+### Quick Start
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create your feature branch from `develop` (`git checkout -b feature/amazing-feature`)
+3. Write meaningful commit messages following conventional commits (`feat: add amazing feature`)
+4. Push to your branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request to `develop`
+
+### Detailed Guidelines
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines
+- Check [.github/BRANCH_STRATEGY.md](.github/BRANCH_STRATEGY.md) for branch workflows
+- Follow our [Code of Conduct](CODE_OF_CONDUCT.md)
+
+Your contributions help make Captioneer better for everyone!
+
 
 ## License
 
