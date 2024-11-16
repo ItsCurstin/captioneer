@@ -26,15 +26,17 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    }
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "NODE_ENV=production tsup",
+    "dev": "NODE_ENV=development tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -67,12 +69,19 @@
   "lint-staged": {
     "*.ts": [
       "biome check --apply",
+      "biome format --write",
       "vitest related --run"
     ]
   },
-  "packageManager": "pnpm@9.0.0",
   "engines": {
-    "node": ">=22.11.0",
-    "pnpm": ">=9.0.0"
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0",
+    "pnpm": ">=8.0.0",
+    "yarn": ">=3.0.0"
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["./dist/index.d.ts"]
+    }
   }
 }
