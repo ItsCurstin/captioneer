@@ -1,11 +1,14 @@
 name: Release & Publish
 
 on:
-  push:
+  pull_request:
+    types: [ closed ]
     branches: [ main ]
 
 jobs:
   release:
+    # Only run if PR was merged (not just closed)
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write

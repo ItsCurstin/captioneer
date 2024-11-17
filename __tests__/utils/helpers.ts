@@ -1,9 +1,9 @@
 // __tests__/utils/helpers.ts
 // Test helpers and mocks
 
-import { HttpClient, HttpResponse, RequestOptions } from '../../src/http/types';
+import { CaptioneerHttpClient, CaptioneerHttpResponse, CaptioneerRequestOptions } from '../../src';
 
-export class MockHttpClient implements HttpClient {
+export class MockHttpClient implements CaptioneerHttpClient {
   private responses: Map<string, { response: string; ok: boolean }> = new Map();
 
   setResponse(url: string, response: string | null, ok = true) {
@@ -14,7 +14,7 @@ export class MockHttpClient implements HttpClient {
     }
   }
 
-  async get(url: string, _options?: RequestOptions): Promise<HttpResponse> {
+  async get(url: string, _options?: CaptioneerRequestOptions): Promise<CaptioneerHttpResponse> {
     const response = this.responses.get(url);
     if (!response) {
       throw new Error(`No mock response set for URL: ${url}`);
