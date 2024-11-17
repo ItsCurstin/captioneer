@@ -1,6 +1,6 @@
 {
   "name": "captioneer",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "module",
   "description": "YouTube Video Captions Library",
   "keywords": [
