@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# 1.1.0 (2024-11-17)
+
+### Features
+
+- Implement HTTP client with robust error handling (4acea13)
+
+### Bug Fixes
+
+- Update project configuration and build setup (e8d9cd7)
+- Configure automated release versioning (5d24b32)
+
 # 1.0.1 (2024-11-16)
 
 ### CI/CD Improvements
