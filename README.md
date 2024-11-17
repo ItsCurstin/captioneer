@@ -12,6 +12,7 @@ A powerful TypeScript library for fetching YouTube video transcripts with ease.
 ## Features
 
 - 🎯 Fetch transcripts from any YouTube video
+- 🔌 Configurable HTTP clients (Fetch, Axios, Got, etc.)
 - 🌍 Support for multiple languages
 - 💪 Type-safe with full TypeScript support
 - ⚡ Modern ESM and CommonJS support
@@ -49,6 +50,73 @@ const captions = await captioneer.fetchCaptions('dQw4w9WgXcQ', {
   lang: 'es' // Fetch Spanish captions
 });
 ```
+
+## HTTP Clients
+
+Captioneer provides flexibility in how you make HTTP requests through its HTTP client system.
+
+### Using the Default HTTP Client
+
+The library comes with a built-in HTTP client using the Fetch API:
+
+```typescript
+import { Captioneer } from 'captioneer';
+
+// Uses default HTTP client
+const captioneer = new Captioneer();
+const captions = await captioneer.fetchCaptions('dQw4w9WgXcQ');
+```
+
+### Using Custom HTTP Clients
+
+You can provide your own HTTP client implementation. Here's an example using Axios:
+
+```typescript
+import { Captioneer, CaptioneerHttpClient } from 'captioneer';
+import axios from 'axios';
+
+const axiosClient: CaptioneerHttpClient = {
+  async get(url, options) {
+    const response = await axios.get(url, options);
+    return {
+      ok: response.status >= 200 && response.status < 300,
+      text: async () => response.data
+    };
+  }
+};
+
+const captioneer = new Captioneer(axiosClient);
+const captions = await captioneer.fetchCaptions('dQw4w9WgXcQ');
+```
+
+### Advanced HTTP Client Configuration
+
+Custom HTTP clients support additional configurations like proxies or custom headers:
+
+```typescript
+const configuredClient: CaptioneerHttpClient = {
+  async get(url, options) {
+    const response = await axios.get(url, {
+      ...options,
+      proxy: {
+        host: 'proxy-server',
+        port: 8080,
+      },
+      headers: {
+        ...options?.headers,
+        'Custom-Header': 'value',
+      },
+    });
+
+    return {
+      ok: response.status >= 200 && response.status < 300,
+      text: async () => response.data,
+    };
+  },
+};
+```
+
+The HTTP client interface ensures compatibility while giving you full control over the request implementation.
 
 ### Error Handling
 
@@ -138,6 +206,7 @@ pnpm lint
 Contributions are welcome! We follow a structured branching strategy and conventional commits.
 
 ### Quick Start
+
 1. Fork the repository
 2. Create your feature branch from `develop` (`git checkout -b feature/amazing-feature`)
 3. Write meaningful commit messages following conventional commits (`feat: add amazing feature`)
@@ -145,12 +214,12 @@ Contributions are welcome! We follow a structured branching strategy and convent
 5. Open a Pull Request to `develop`
 
 ### Detailed Guidelines
+
 - See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines
 - Check [.github/BRANCH_STRATEGY.md](.github/BRANCH_STRATEGY.md) for branch workflows
 - Follow our [Code of Conduct](CODE_OF_CONDUCT.md)
 
 Your contributions help make Captioneer better for everyone!
-
 
 ## License
 
@@ -158,4 +227,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Credits
 
-Created by ItsCurstin
+Created by [ItsCurstin](https://github.com/ItsCurstin)
