@@ -49,6 +49,7 @@
     "commit-msg": "commitlint --edit",
     "commit": "git-cz",
     "release": "semantic-release",
+    "release:preview": "semantic-release --dry-run --no-ci --branches release/*",
     "prepublishOnly": "pnpm run typecheck && pnpm run test && pnpm run check && pnpm run build"
   },
   "devDependencies": {
