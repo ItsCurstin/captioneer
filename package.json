@@ -1,6 +1,6 @@
 {
   "name": "captioneer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "YouTube Video Captions Library",
   "keywords": [
@@ -45,6 +45,8 @@
     "check": "biome check .",
     "typecheck": "tsc --noEmit",
     "prepare": "husky || true",
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint --edit",
     "commit": "git-cz",
     "release": "semantic-release",
     "prepublishOnly": "pnpm run typecheck && pnpm run test && pnpm run check && pnpm run build"
@@ -81,7 +83,9 @@
   },
   "typesVersions": {
     "*": {
-      "*": ["./dist/index.d.ts"]
+      "*": [
+        "./dist/index.d.ts"
+      ]
     }
   }
 }

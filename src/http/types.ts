@@ -1,14 +1,17 @@
 // src/http/types.ts
 
-export interface HttpClient {
-  get(url: string, options?: RequestOptions): Promise<HttpResponse>;
+export type CaptioneerGETHttpMethod = 'GET';
+
+export interface CaptioneerHttpClient {
+  get(url: string, options?: CaptioneerRequestOptions): Promise<CaptioneerHttpResponse>;
 }
 
-export interface RequestOptions {
+export interface CaptioneerRequestOptions {
   headers?: Record<string, string>;
+  method?: CaptioneerGETHttpMethod;
 }
 
-export interface HttpResponse {
+export interface CaptioneerHttpResponse {
   ok: boolean;
   text(): Promise<string>;
 }

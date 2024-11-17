@@ -1,10 +1,10 @@
 // src/core/types.ts
 
-import { HttpClient } from '../http/types';
+import { CaptioneerHttpClient } from '../http/types';
 
 export interface CaptioneerConfig {
   lang?: string;
-  httpClient?: HttpClient;
+  httpClient?: CaptioneerHttpClient;
 }
 
 export interface CaptionEntry {
