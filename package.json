@@ -45,6 +45,8 @@
     "check": "biome check .",
     "typecheck": "tsc --noEmit",
     "prepare": "husky || true",
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint --edit",
     "commit": "git-cz",
     "release": "semantic-release",
     "prepublishOnly": "pnpm run typecheck && pnpm run test && pnpm run check && pnpm run build"

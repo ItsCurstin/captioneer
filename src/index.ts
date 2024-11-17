@@ -2,8 +2,18 @@
 
 // Core
 export { Captioneer } from './core/captioneer';
+export { CaptioneerDefaultClient } from './http/captioneer-default-client';
 
 // Types
+export type {
+  CaptioneerHttpClient,
+  CaptioneerHttpResponse,
+  CaptioneerRequestOptions,
+  CaptioneerGETHttpMethod,
+} from './http/types';
+
+export type { CaptioneerHttpTimeoutError, CaptioneerHttpRateLimitError } from './http/http-errors';
+
 export type {
   CaptionEntry,
   CaptionSource,

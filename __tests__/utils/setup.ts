@@ -3,7 +3,7 @@
 import { expect } from 'vitest';
 import { CaptionEntry } from '../../src';
 import { CaptioneerError } from '../../src';
-import { ErrorCode } from '../../src/errors/codes';
+import { ErrorCode } from '../../src';
 
 // Custom matcher types
 declare module 'vitest' {

@@ -9,8 +9,8 @@ import {
   TooManyRequestsError,
   VideoUnavailableError,
 } from '../errors/errors';
-import { FetchHttpClient } from '../http/fetch-client';
-import { HttpClient } from '../http/types';
+import { CaptioneerDefaultClient } from '../http/captioneer-default-client';
+import { CaptioneerHttpClient } from '../http/types';
 import { extractCaptionTracks, parseCaptionContent } from '../utils/parsers';
 import { validateVideoId } from '../utils/validators';
 import { CaptionEntry, CaptionSource, CaptionTrackList, CaptioneerConfig } from './types';
@@ -19,10 +19,10 @@ export class Captioneer {
   private static readonly USER_AGENT =
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36,gzip(gfe)';
 
-  private readonly httpClient: HttpClient;
+  private readonly httpClient: CaptioneerHttpClient;
 
-  constructor(httpClient?: HttpClient) {
-    this.httpClient = httpClient ?? new FetchHttpClient();
+  constructor(httpClient?: CaptioneerHttpClient) {
+    this.httpClient = httpClient ?? new CaptioneerDefaultClient();
   }
 
   public async fetchCaptions(
